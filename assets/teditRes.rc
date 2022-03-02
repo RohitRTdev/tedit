@@ -1,0 +1,70 @@
+#include <Windows.h>
+#include "defs.h"
+
+
+ID_MANIFEST RT_MANIFEST "tedit.exe.manifest"
+
+//Embed teditIcon
+ID_ICON ICON "tedIcon.ico"
+
+//Definition for main menu
+ID_MENU MENU
+{
+	POPUP "&File"
+	{
+		MENUITEM "&New\tCtrl+N",		ID_NEW
+		MENUITEM "New &Window\tCtrl+Shift+N", ID_NEWWINDOW
+		MENUITEM SEPARATOR
+		MENUITEM "&Open\tCtrl+O",       ID_OPEN
+		MENUITEM "&Save\tCtrl+S",       ID_SAVE
+		MENUITEM "Save &As\tCtrl+Shift+S",    ID_SAVEAS
+		MENUITEM SEPARATOR
+		MENUITEM "&Exit",       ID_EXIT
+	}
+	POPUP "&Edit"
+	{
+		MENUITEM "&Undo\tCtrl+Z",		ID_UNDO
+		MENUITEM SEPARATOR 
+		MENUITEM "Cu&t\tCtrl+X",				ID_CUT
+		MENUITEM "&Copy\tCtrl+C",				ID_COPY
+		MENUITEM "&Paste\tCtrl+V",				ID_PASTE
+		MENUITEM "Dele&te\tDel",				ID_DELETE
+	}
+	POPUP "F&ormat"
+	{
+		MENUITEM "&Word Wrap", ID_WORDWRAP
+		MENUITEM "&Font", ID_FONT
+	}
+	POPUP "&View"
+	{
+		MENUITEM "&Status Bar", ID_STATUSBARMENU
+	}
+	POPUP "&Help"
+	{
+		MENUITEM "&About",     ID_ABOUT
+	}
+}
+
+ID_ACCEL ACCELERATORS
+{
+	"N",	ID_NEW,				CONTROL, VIRTKEY
+	"N",    ID_NEWWINDOW,       CONTROL, SHIFT, VIRTKEY
+	"O",    ID_OPEN,			CONTROL, VIRTKEY
+	"S",    ID_SAVE,			CONTROL, VIRTKEY
+	"S",	ID_SAVEAS,			CONTROL, SHIFT, VIRTKEY
+	"Z",	ID_UNDO,			CONTROL, VIRTKEY
+	"A",	ID_SELECTALL,		CONTROL, VIRTKEY
+}
+
+ID_SAVEDIALOG DIALOGEX 100, 100, 150, 40, 
+STYLE WS_POPUP|WS_SYSMENU|WS_CAPTION|DS_CENTER|DS_MODALFRAME|DS_NOIDLEMSG
+CAPTION "tedit" 
+FONT 12, "Arial", 400, 0, 0
+{
+	CTEXT "Do you want to save changes?", ID_MESSAGE, 5, 10, 140, 10
+	PUSHBUTTON "&Save", ID_SAVE, 4, 25, 30, 10
+	PUSHBUTTON "Do&n't Save", ID_NOSAVE, 50, 25, 50, 10
+	PUSHBUTTON "Cancel", ID_CANCEL, 115, 25, 30, 10
+}
+
+
