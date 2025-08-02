@@ -1,6 +1,7 @@
 #pragma once
 #include "winWindow.h"
 #include <vector>
+#include <string>
 #pragma comment(lib, "Comctl32.lib")
 
 struct statusBarRatios
